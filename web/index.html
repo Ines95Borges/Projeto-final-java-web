@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Página inicial</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                background-color: #333;
+                font-size: 32px;
+            }
+            nav{
+                width: 100%;
+                height: 100px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: aqua;
+                opacity: 0.3;
+            }
+            nav ul li{
+                display: inline;
+            }
+            nav ul li:first-child{
+                margin-right: 60px;
+            }
+            nav ul li a{
+                text-decoration: none;
+                transition: all 0.3s linear;
+            }
+            nav ul li a:hover{
+                color: #333;
+            }
+            nav button{
+                width: 180px;
+                height: 60px;
+                font-size: 28px;
+                border: 3px solid black;
+                border-radius: 30px;
+            }
+            nav button:hover{
+                background-color: aqua;
+                cursor: pointer;
+            }
+            .container{
+                width: 600px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                padding: 6%;
+                border: 3px dotted aqua;
+                border-radius: 20px;
+                margin: auto;
+                margin-top: 20px;
+                text-align: center;
+            }
+            h2{
+                color: aqua;
+            }
+            label{
+                font-size: 20px;
+                font-weight: bolder;
+            }
+            .container label{
+                font-size: 20px;
+                color: #aaa;
+            }
+            input{
+                border-radius: 30px;
+            }
+            .row{
+                display: block;
+            }
+            .container button{
+                width: 150px;
+                height: 50px;
+                font-size: 18px;
+                color: aqua;
+                background-color: #333;
+                border-radius: 10px;
+                margin-top: 20px;
+                transition: all 0.3s linear;
+            }
+            .container button:hover{
+                background-color: aqua;
+                color: #333;
+                font-weight: bolder;
+            }
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+              text-align: center;
+            }
+
+            /* Modal Content */
+            .modal-content {
+              background-color: aqua;
+              margin: auto;
+              padding: 20px;
+              border: 3px solid #333;
+              border-radius: 20px;
+              width: 60%;
+            }
+            .modal-content button{
+                width: 200px;
+                height: 50px;
+                border: 3px solid black;
+                background-color: aqua;
+                border-radius: 10px;
+                transition: all 0.3s linear;
+                font-size: 18px;
+                margin-top: 30px;
+            }
+            .modal-content button:hover{
+                background-color: black;
+                color: aqua;
+                font-weight: bolder;
+                font-size: 24px;
+            }
+            /* The Close Button */
+            .close {
+              color: #000;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: red;
+              text-decoration: none;
+              cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="loja.html">Loja</a></li>
+                </ul>
+                <div>
+                    <button id="registar">Registar-se</button>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="container">
+                <h2>Faça log in aqui</h2>
+                <form action="logIn" method="post">
+                    <div>
+                        <div class="row">
+                            <label>Nome de utilizador: </label>
+                            <input type="text" name="username" required>
+                        </div>
+                        <div class="row">
+                            <label>Palavra-passe: </label>
+                            <input type="password" name="password" required>
+                        </div>
+                    </div>
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        </main>
+        
+        <!-- Modal -->
+        <div id="registarModal" class="modal">
+
+          <!-- Modal conteúdo -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Faça registo aqui</h3>
+            <form action="registar" method="post">
+                <div>
+                    <div class="row">
+                        <label>Nome de utilizador: </label>
+                        <input type="text" name="username" required>
+                    </div>
+                    <div class="row">
+                        <label>Palavra-passe: </label>
+                        <input type="password" name="password" required>
+                    </div>
+                </div>
+                <button type="submit">Registo</button>
+            </form>
+          </div>
+
+        </div>
+        
+        <script>
+        // Get the modal
+        var modal = document.getElementById("registarModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("registar");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+    </body>
+</html>
