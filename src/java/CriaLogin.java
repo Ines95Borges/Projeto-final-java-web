@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,12 +22,14 @@ public class CriaLogin {
       
       password = sb.toString();
       
-      PreparedStatement ps = ObjCon.conn.prepareStatement("SELECT * FROM utilizadores WHERE nome=? AND pwd=?;");
+      PreparedStatement ps = ObjCon.conn.prepareStatement("SELECT * FROM clientes WHERE nome=? AND pwd=?;");
       ps.setString(1, nome);
       ps.setString(2, password);
       
       ResultSet rs = ps.executeQuery();
       status = rs.next();
+      System.out.println(status);
+      
       
     }catch(Exception e){
       System.out.println(e);

@@ -156,44 +156,44 @@
                     <div class="card col-3">
                         <img src="./Imagens/babygrow-azul.jpg">
                         <h4>Babygrow</h4>
-                        <h5>13.56€</h5>
+                        <h5>13.56?</h5>
                     </div>
                     <div class="card col-3">
                         <img src="./Imagens/body-penguim.jpg">
                         <h4>Babygrow</h4>
-                        <h5>13.56€</h5>
+                        <h5>13.56?</h5>
                     </div>
                     <div class="card col-3">
                         <img src="./Imagens/casaco-crianca.jpg">
                         <h4>Babygrow</h4>
-                        <h5>13.56€</h5>
+                        <h5>13.56?</h5>
                     </div>
                     <div class="card col-3">
                         <img src="./Imagens/molde.jpg">
                         <h4>Babygrow</h4>
-                        <h5>13.56€</h5>
+                        <h5>13.56?</h5>
                     </div>
                 </div>
                 <div class="row">
                     <div class="card col-3">
                         <img src="./Imagens/pijama-menina.jpg">
                         <h4>Babygrow</h4>
-                        <h5>13.56€</h5>
+                        <h5>13.56?</h5>
                     </div>
                     <div class="card col-3">
                         <img src="./Imagens/pijama.jpg">
                         <h4>Babygrow</h4>
-                        <h5>13.56€</h5>
+                        <h5>13.56?</h5>
                     </div>
                     <div class="card col-3">
                         <img src="./Imagens/tshirt-ramones.jpg">
                         <h4>Babygrow</h4>
-                        <h5>13.56€</h5>
+                        <h5>13.56?</h5>
                     </div>
                     <div class="card col-3">
                         <img src="./Imagens/vestido-menina-crianca.jpg">
                         <h4>Babygrow</h4>
-                        <h5>13.56€</h5>
+                        <h5>13.56?</h5>
                     </div>
                 </div>
             </div>
@@ -202,10 +202,10 @@
         <!-- Modal -->
         <div id="registarModal" class="modal">
 
-          <!-- Modal conteúdo -->
+          <!-- Modal conte�do -->
           <div class="modal-content">
             <span class="close">&times;</span>
-            <h3>Faça registo aqui</h3>
+            <h3>Fa�a registo aqui</h3>
             <form action="registar" method="post">
                 <div>
                     <div class="row">
@@ -217,13 +217,15 @@
                         <input type="password" name="password" required>
                     </div>
                 </div>
-                <button type="submit">Registo</button>
+                <button id="btn_registar" type="submit">Registo</button>
             </form>
           </div>
 
         </div>
         
         <script>
+        const entrou = <%=request.getAttribute("entrou")%>
+        if(entrou === "entrou") btnRegistar.disabled = true; 
         // Get the modal
         var modal = document.getElementById("registarModal");
 

@@ -48,7 +48,7 @@ public class registar extends HttpServlet {
       
       pwd = sb.toString();
       
-      PreparedStatement ps = objCon.conn.prepareStatement("INSERT INTO utilizadores(id, nome, pwd) VALUES (?,?,?)");
+      PreparedStatement ps = objCon.conn.prepareStatement("INSERT INTO clientes(id, nome, pwd) VALUES (?,?,?)");
       ps.setString(1, null);
       ps.setString(2, name);
       ps.setString(3, pwd);
@@ -56,7 +56,8 @@ public class registar extends HttpServlet {
       int i = ps.executeUpdate();
       
       if(i>0){
-        out.print("Sucesso");
+        request.setAttribute("entrou", "entrou");
+        request.getRequestDispatcher("loja.jsp").forward(request, response);
       }
       
     }catch(Exception e){
