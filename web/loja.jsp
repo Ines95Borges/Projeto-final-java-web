@@ -142,7 +142,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="loja.html">Loja</a></li>
+                    <li><a href="loja.jsp">Loja</a></li>
                 </ul>
                 <div>
                     <button id="registar">Registar-se</button>
