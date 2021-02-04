@@ -33,7 +33,7 @@ public class logIn extends HttpServlet {
     String pwd = request.getParameter("password");
     
     if(lg.validaLogin(name, pwd)){
-      request.getRequestDispatcher("loja.html").forward(request, response);
+      request.getRequestDispatcher("loja.jsp").forward(request, response);
     }else{
       out.print("erro log in");
       request.getRequestDispatcher("erro.jsp").forward(request, response);
