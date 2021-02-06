@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styles.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script src="./cartScript.js" defer></script>
     </head>
     <body>
         <header>
@@ -12,10 +14,15 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="loja.jsp">Loja</a></li>
+                    <li id="shopping-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                        <div id="cart-items">0</div>
+                    </li>
                 </ul>
                 <div>
                     <button id="registar">Registar-se</button>
                 </div>
+                
             </nav>
         </header>
         
@@ -23,7 +30,10 @@
             <div class="container-store">
                 <div class="row">
                     <div class="card col-3">
-                        <img src="./Imagens/babygrow-azul.jpg">
+                        <div class="add-to-cart">
+                            <img src="./Imagens/babygrow-azul.jpg">
+                            <button class="add-to-cart-button">Adicionar ao carrinho</button>
+                        </div>
                         <h4>Babygrow</h4>
                         <h5>13.56?</h5>
                     </div>
@@ -66,6 +76,34 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="cart">
+                <div class="cart-head">
+                    <span id="close-cart">&times;</span>
+                    <h4>Carrinho de compras</h4>
+                </div>
+                <div id="products-cart-container">
+                    <div class="cart-content">
+                        <img class="cart-image" src="./Imagens/vestido-menina-crianca.jpg">
+                        <div class="product-information">
+                            <h6 class="cart-product">Babygrow</h6>
+                            <p class="cart-price">13.56?</p>
+                            <span class="remover-produto">remover</span>
+                        </div>
+                        <div class="cart-amount">
+                            <div class="arrow">
+                                <div class="up-arrow"></div>
+                            </div>
+                            <p class="amount">1</p>
+                            <div class="arrow">
+                                <div class="down-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="total">Total: <span id="cart-total">0</span></p>
+            </div>
+            
         </main>
         
         <!-- Modal -->

@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -28,12 +30,12 @@ nav{
     justify-content: space-around;
     align-items: center;
     background-color: aqua;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 nav ul li{
     display: inline;
 }
-nav ul li:first-child{
+nav ul li{
     margin-right: 60px;
 }
 nav ul li a{
@@ -170,4 +172,148 @@ input{
 }
 .card img{
     width: 100%;
+    object-fit: cover;
+}
+.card h4 {
+    margin: 0;
+}
+.card h5 {
+    margin: 0;
+    float: right;
+}
+
+#shopping-icon{
+    position: relative;
+    cursor: pointer;
+}
+
+.fa-shopping-basket{
+    color: orangered;
+}
+
+#cart-items{
+    position: absolute;
+    top:-9px;
+    right:-5px;
+    color: white;
+    opacity: 1;
+}
+
+/* Estilos para o carrinho de compras */
+.cart{
+    width: 400px;
+    height: 100vh;
+    background-color: whitesmoke;
+    padding: 10px;
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: none;
+    overflow-y: scroll;
+}
+
+#close-cart{
+    color: blue;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.cart-head{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.cart-head h4{
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilos para o botão adicionar carrinho */
+.add-to-cart{
+    position: relative;
+}
+.add-to-cart-button{
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    padding-left: 10px;
+    height: 50px;
+    border: none;
+    background-color: aqua;
+    color: black;
+    letter-spacing: 2px;
+    border-radius: 10px 0 0 10px;
+    display: none;
+}
+
+/* Estilos para os produtos no carrinho de compras */
+.cart-content{
+    display: flex;
+    padding: 10px;
+}
+.cart-image{
+    width: 100px;
+    height: 100px;
+}
+.product-information{
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.cart-product{
+    font-size: 18px;
+    width: 100%;
+}
+.cart-price{
+    font-size: 16px;
+    width: 100%;
+}
+.remover-produto{
+    display: inline;
+    font-size: 14px;
+    cursor: pointer;
+    color: blue;
+}
+.cart-amount{
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 100%;
+}
+.arrow{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.up-arrow{
+    width:0;
+    border-bottom: 8px solid aqua;
+    border-top: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    transform: translateY(-25%);
+}
+.down-arrow{
+    width:0;
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid aqua;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    transform: translateY(25%);
+}
+
+.total{
+    margin-top: 20px;
+    text-align: center;
 }
