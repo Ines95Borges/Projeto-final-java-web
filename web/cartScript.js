@@ -67,6 +67,27 @@ var Cart = class Cart {
         amount > 1 ? amount-- : "";
         event.target.parentElement.parentElement.childNodes[3].innerHTML = String(amount);
     }
+    
+    updatePrice(){
+        var allProductsInCart = document.querySelectorAll(".cart-content");
+        let sumPrice = 0;
+        allProductsInCart.forEach(product => {
+            var amount = parseInt(product.childNodes[5].childNodes[3].innerHTML, 10);
+            var price = parseFloat(product.childNodes[3].childNodes[3].innerHTML, 10);
+            sumPrice += amount*price;
+        });
+        var totalPriceDiv = document.querySelector("#cart-total");
+        totalPriceDiv.innerHTML = String(sumPrice);
+    }
+    
+    updateCartNumberItems(){
+        var amount = document.querySelectorAll(".amount");
+        let numberItems = 0
+        amount.forEach(p => {
+            numberItems += parseInt(p.innerHTML, 10);
+        })
+        return numberItems;
+    }
 };
 
 
@@ -76,15 +97,30 @@ var Cart = class Cart {
 const cart = new Cart();
 const addButton = document.querySelectorAll(".add-to-cart-button");
 const productsCartContainer = document.querySelector("#products-cart-container");
+const cartNumberItemsDiv = document.querySelector("#cart-items");
 
 addButton.forEach(button => button.addEventListener("click", (e) => {
     var details = cart.getProductDetails(e);
     cart.showProductInCart(details[0], details[1], details[2]);
     var removeButton = document.querySelectorAll(".remover-produto");
-    removeButton.forEach(button => button.addEventListener("click", (e) => e.target.parentElement.parentElement.remove()));
+    removeButton.forEach(button => button.addEventListener("click", (e) => {
+        e.target.parentElement.parentElement.remove();
+        cart.updatePrice();
+        cartNumberItemsDiv.innerHTML = String(cart.updateCartNumberItems());
+    }));
     var upperArrows = document.querySelectorAll(".up-arrow");
-    upperArrows.forEach(arrow => arrow.addEventListener("click", (e) => cart.increaseAmount(e)));
+    upperArrows.forEach(arrow => arrow.addEventListener("click", (e) => {
+        cart.increaseAmount(e);
+        cart.updatePrice();
+        cartNumberItemsDiv.innerHTML = String(cart.updateCartNumberItems());
+    }));
     var downArrows = document.querySelectorAll(".down-arrow");
-    downArrows.forEach(arrow => arrow.addEventListener("click", (e) => cart.decreaseAmount(e)));
+    downArrows.forEach(arrow => arrow.addEventListener("click", (e) => {
+        cart.decreaseAmount(e);
+        cart.updatePrice();
+        cartNumberItemsDiv.innerHTML = String(cart.updateCartNumberItems());
+    }));
+    cart.updatePrice();
+    cartNumberItemsDiv.innerHTML = String(cart.updateCartNumberItems());
 }));
 
