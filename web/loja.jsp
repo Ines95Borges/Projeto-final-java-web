@@ -1,10 +1,19 @@
+
+<%@page import="java.io.PrintWriter"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page language="java" contentType="text/html" pageEncoding="ISO-8859-1" import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Loja</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styles.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script src="./cartScript.js" defer></script>
     </head>
     <body>
         <header>
@@ -12,60 +21,71 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="loja.jsp">Loja</a></li>
+                    <li id="shopping-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                        <div id="cart-items">0</div>
+                    </li>
                 </ul>
                 <div>
                     <button id="registar">Registar-se</button>
                 </div>
+                
             </nav>
         </header>
         
-        <main>
-            <div class="container-store">
-                <div class="row">
-                    <div class="card col-3">
-                        <img src="./Imagens/babygrow-azul.jpg">
-                        <h4>Babygrow</h4>
-                        <h5>13.56?</h5>
-                    </div>
-                    <div class="card col-3">
-                        <img src="./Imagens/body-penguim.jpg">
-                        <h4>Babygrow</h4>
-                        <h5>13.56?</h5>
-                    </div>
-                    <div class="card col-3">
-                        <img src="./Imagens/casaco-crianca.jpg">
-                        <h4>Babygrow</h4>
-                        <h5>13.56?</h5>
-                    </div>
-                    <div class="card col-3">
-                        <img src="./Imagens/molde.jpg">
-                        <h4>Babygrow</h4>
-                        <h5>13.56?</h5>
-                    </div>
+        <main>          
+           <%   Connection Conexao;
+            Class.forName("com.mysql.jdbc.Driver");
+
+            Conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaweb_pf", "root", "");;
+
+            try {
+
+                PreparedStatement ps = Conexao.prepareStatement("Select nome, precoVenda, foto from produtos");
+
+                ResultSet rs = ps.executeQuery();
+                
+                %>
+                <div class="container-store">
+                <%
+                while (rs.next()) {
+
+                    String nome = rs.getString(1);
+                    float preco = rs.getFloat(2);
+                    String foto = rs.getString(3);
+                %>
+                  <div class="card col-3">
+                        <div class="add-to-cart">
+                            <img src="<%=foto%>">
+                            <button class="add-to-cart-button">Adicionar ao carrinho</button>
+                        </div>
+                        <h4><%=nome%></h4>
+                        <h5><%=preco%></h5>
+                    </div> 
+                  <%
+                }
+                %>
                 </div>
-                <div class="row">
-                    <div class="card col-3">
-                        <img src="./Imagens/pijama-menina.jpg">
-                        <h4>Babygrow</h4>
-                        <h5>13.56?</h5>
-                    </div>
-                    <div class="card col-3">
-                        <img src="./Imagens/pijama.jpg">
-                        <h4>Babygrow</h4>
-                        <h5>13.56?</h5>
-                    </div>
-                    <div class="card col-3">
-                        <img src="./Imagens/tshirt-ramones.jpg">
-                        <h4>Babygrow</h4>
-                        <h5>13.56?</h5>
-                    </div>
-                    <div class="card col-3">
-                        <img src="./Imagens/vestido-menina-crianca.jpg">
-                        <h4>Babygrow</h4>
-                        <h5>13.56?</h5>
-                    </div>
+                <%                 
+
+            } catch (SQLException e) {
+                System.out.println("Erro na conexão à base de dados" + e);
+            }
+
+
+        %>
+            
+            
+                       
+            
+            <div class="cart">
+                <div class="cart-head">
+                    <span id="close-cart">&times;</span>
+                    <h4>Carrinho de compras</h4>
                 </div>
+                <div class="cart-content"></div>
             </div>
+            
         </main>
         
         <!-- Modal -->

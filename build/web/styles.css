@@ -28,12 +28,12 @@ nav{
     justify-content: space-around;
     align-items: center;
     background-color: aqua;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 nav ul li{
     display: inline;
 }
-nav ul li:first-child{
+nav ul li{
     margin-right: 60px;
 }
 nav ul li a{
@@ -81,9 +81,7 @@ label{
 input{
     border-radius: 30px;
 }
-.row{
-    display: block;
-}
+
 .container button{
     width: 150px;
     height: 50px;
@@ -158,7 +156,11 @@ input{
 .container-store{
     margin-top: 40px;
     padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    /*grid-template-columns: repeat(auto-fit,minmax(250px,1fr));*/
 }
+
 .row::after {
     content: "";
     clear: both;
@@ -167,7 +169,72 @@ input{
 .card{
     border: 2px dotted aqua;
     border-radius: 10px;
-}
+    width: 25%;
+    }
 .card img{
     width: 100%;
+    object-fit: cover;
+    height: 400px;
+}
+.card h4 {
+    margin: 0;
+}
+.card h5 {
+    margin: 0;
+    float: right;
+}
+
+#shopping-icon{
+    position: relative;
+    cursor: pointer;
+}
+
+#cart-items{
+    position: absolute;
+    top:-9px;
+    right:-5px;
+    color: white;
+    opacity: 1;
+}
+
+/* Estilos para o carrinho de compras */
+.cart{
+    width: 400px;
+    height: 100vh;
+    background-color: whitesmoke;
+    padding: 10px;
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+#close-cart{
+    color: blue;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.cart-head{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para o botão adicionar carrinho */
+.add-to-cart{
+    position: relative;
+}
+.add-to-cart-button{
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    height: 50px;
+    border: none;
+    background-color: aqua;
+    color: black;
+    letter-spacing: 2px;
+    border-radius: 10px 0 0 10px;
+    display: none;
 }
