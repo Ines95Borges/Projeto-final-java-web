@@ -246,6 +246,7 @@ input{
     letter-spacing: 2px;
     border-radius: 10px 0 0 10px;
     display: none;
+    cursor: pointer;
 }
 
 /* Estilos para os produtos no carrinho de compras */
