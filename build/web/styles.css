@@ -83,9 +83,7 @@ label{
 input{
     border-radius: 30px;
 }
-.row{
-    display: block;
-}
+
 .container button{
     width: 150px;
     height: 50px;
@@ -160,7 +158,10 @@ input{
 .container-store{
     margin-top: 40px;
     padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
 }
+
 .row::after {
     content: "";
     clear: both;
@@ -169,10 +170,12 @@ input{
 .card{
     border: 2px dotted aqua;
     border-radius: 10px;
-}
+    width: 25%;
+    }
 .card img{
     width: 100%;
     object-fit: cover;
+    height: 400px;
 }
 .card h4 {
     margin: 0;
@@ -228,6 +231,8 @@ input{
 .cart-head h4{
     width: 100%;
     text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 /* Estilos para o botão adicionar carrinho */
