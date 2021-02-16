@@ -22,7 +22,7 @@ public class CriaLogin {
       
       password = sb.toString();
       
-      PreparedStatement ps = ObjCon.conn.prepareStatement("SELECT * FROM clientes WHERE nome=? AND pwd=?;");
+      PreparedStatement ps = ObjCon.conn.prepareStatement("SELECT * FROM utilizador WHERE nome=? AND pwd=?;");
       ps.setString(1, nome);
       ps.setString(2, password);
       

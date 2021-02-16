@@ -81,23 +81,7 @@
                     <h4>Carrinho de compras</h4>
                 </div>
                 <div id="products-cart-container">
-                    <div class="cart-content">
-                        <img class="cart-image" src="./Imagens/vestido-menina-crianca.jpg">
-                        <div class="product-information">
-                            <h6 class="cart-product">Babygrow</h6>
-                            <p class="cart-price">13.56?</p>
-                            <span class="remover-produto">remover</span>
-                        </div>
-                        <div class="cart-amount">
-                            <div class="arrow">
-                                <div class="up-arrow"></div>
-                            </div>
-                            <p class="amount">1</p>
-                            <div class="arrow">
-                                <div class="down-arrow"></div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <p class="total">Total: <span id="cart-total">0</span></p>
             </div>
