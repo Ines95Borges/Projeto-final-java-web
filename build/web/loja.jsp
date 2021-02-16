@@ -71,13 +71,9 @@
             } catch (SQLException e) {
                 System.out.println("Erro na conexão à base de dados" + e);
             }
-
-
-        %>
+            %>
             
-            
-                       
-            
+                                
             <div class="cart">
                 <div class="cart-head">
                     <span id="close-cart">&times;</span>
