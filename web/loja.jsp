@@ -37,7 +37,7 @@
            <%   Connection Conexao;
             Class.forName("com.mysql.jdbc.Driver");
 
-            Conexao = DriverManager.getConnection("jdbc:mysql://localhost:3307/javaweb_pf", "root", "");;
+            Conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaweb_pf", "root", "");;
 
             try {
 

@@ -39,11 +39,13 @@ nav ul li{
     margin-right: 60px;
 }
 nav ul li a{
+ 
     text-decoration: none;
     transition: all 0.3s linear;
 }
 nav ul li a:hover{
-    color: #333;
+    
+    color: white;
 }
 nav button{
     width: 180px;
@@ -178,9 +180,11 @@ input{
     height: 400px;
 }
 .card h4 {
+    color: white;
     margin: 0;
 }
 .card h5 {
+    color: white;
     margin: 0;
     float: right;
 }
